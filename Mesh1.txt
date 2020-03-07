@@ -1,0 +1,273 @@
+/ ______________________________________________________________________________
+/ Straus7 MODEL EXCHANGE FILE
+/ TIMESTAMP: 12:37:26 pm, 07 March 2020
+
+/ ______________________________________________________________________________
+/ MODEL INFORMATION
+
+   FileFormat           Straus7.2.4.6
+   ModelName            "Mesh1"
+   Title                ""
+   Project              ""
+   Author               ""
+   Reference            ""
+   Comments             ""
+
+/ ______________________________________________________________________________
+/ UNITS
+
+   LengthUnit           m
+   MassUnit             kg
+   EnergyUnit           J
+   PressureUnit         kPa
+   ForceUnit            kN
+   TemperatureUnit      K
+
+/ ______________________________________________________________________________
+/ GROUP DEFINITIONS
+
+   Group                    1    16711680   "\\Model"
+
+/ ______________________________________________________________________________
+/ FREEDOM CASE DEFINITIONS
+
+   FreedomCase              1       0       1   "Freedom Case 1"
+    
+
+/ ______________________________________________________________________________
+/ LOAD CASE DEFINITIONS
+
+   LoadCase                 1       0   "Load Case 1"
+     LCInclude              3 
+
+
+/ ______________________________________________________________________________
+/ COORDINATE SYSTEM DEFINITIONS
+
+   CoordSys                 1   "Global XYZ"  GlobalXYZ
+
+
+/ ______________________________________________________________________________
+/ NODE COORDINATES
+
+   Node                     1       0     0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0  
+   Node                     2       0     1.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0  
+
+/ ______________________________________________________________________________
+/ BEAM ELEMENTS
+
+   Beam                     1       0       1       1       1       2 
+
+/ ______________________________________________________________________________
+/ BEAM PROPERTIES
+
+   BeamProp                 1    16737843   "Beam Property 1"
+     MaterialName       "Steel"
+     Modulus              2.00000000000000E+8  
+     ShearMod             8.00000000000000E+7  
+     Poisson              2.50000000000000E-1  
+     UsePoisson         TRUE
+     Density              7.87000000000000E+3  
+     Expansion            1.15000000000000E-5  
+     ThermalCond          5.10000000000000E+1  
+     SpecificHeat         5.00000000000000E+2  
+     InstantAlpha       FALSE
+     Area                 9.11061869500000E-3  
+     MomentI11            9.58892620000000E-5  
+     MomentI22            9.58892620000000E-5  
+     MomentJ              1.91778524000000E-4  
+     SectionType        HollowRound
+       D                  3.00000000000000E-1  
+       T                  1.00000000000000E-2  
+     TimeDependentMod   Elastic
+     UseMomCurv         FALSE
+     NonLinType         Elasticplastic
+     Hardening          Isotropic
+
+
+/ ______________________________________________________________________________
+/ LINEAR STATIC SOLVER DATA
+
+   LoadFreedomSetLSA        1   ON
+      1 
+
+
+/ ______________________________________________________________________________
+/ LINEAR BUCKLING SOLVER DATA
+
+   BuckNumModes             4 
+
+   BuckShift              0.00000000000000E+0  
+
+
+/ ______________________________________________________________________________
+/ LOAD INFLUENCE SOLVER DATA
+
+   LoadFreedomSetLIA        1   ON
+      1 
+
+
+/ ______________________________________________________________________________
+/ NATURAL FREQUENCY SOLVER DATA
+
+   FreqNumModes             4 
+
+   FreqShift              0.00000000000000E+0  
+
+   FreqIncludeNSMass        1 
+
+   FreqModeParticipation   FALSE
+    0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0  
+    0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0  
+    0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0  
+
+
+/ ______________________________________________________________________________
+/ HEAT SOLVER DATA
+
+   LoadSetHeat              1 
+
+   HeatTempLoadCase         1 
+
+   HeatNonlinear        FALSE
+
+
+/ ______________________________________________________________________________
+/ GENERAL SOLVER DATA
+
+   SolverTempDependence   None
+
+   SolverLoadCaseTempDependence       0 
+
+   SolverActiveStage        0 
+
+   SturmCheck           FALSE
+
+   SolverFreedomCase        1 
+
+   ModalLoadType        BaseAcceleration
+
+   ModalNodeReactType   Element
+
+   DampingType          Rayleigh
+
+   RayleighFactors      Frequency
+    0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0      0.00000000000000E+0      1.00000000000000E-2      1.00000000000000E-2  
+
+   NonLinearGeometry    TRUE
+
+   NonLinearMaterial    TRUE
+
+   IncludeCreep         FALSE
+
+
+   SolverDefaultsGeneral 
+     SolDefMatrixZeroDiag     1.00000000000000E-20 
+     SolDefConjGradTol      1.00000000000000E-5  
+     SolDefMaxConjGradIter    5000 
+     SolDefMaxNumWarnings      10 
+     SolDefWindowState        3 
+     SolDefReducedLogFile   TRUE
+     SolDefDoResidualsCheck   FALSE
+     SolDefSuppressAllSingularities   FALSE
+
+   SolverDefaultsElements 
+     SolDefMinDimension     1.00000000000000E-9  
+     SolDefMinInternalAngle     1.50000000000000E+1  
+     SolDefZeroPointForce     1.00000000000000E-6  
+     SolDefZeroDiagonal     1.00000000000000E-20 
+     SolDefBeamMass       Lumped
+     SolDefPlateMass      Lumped
+     SolDefBrickMass      Lumped
+     SolDefBeamLoads      Consistent
+     SolDefPlateLoads     Consistent
+     SolDefBeamSlices         5 
+     SolDefIncludeLinkReactions   TRUE
+
+   SolverDefaultsDrilling 
+     SolDefZeroTrans        1.00000000000000E-8  
+     SolDefZeroRot          1.00000000000000E-6  
+     SolDrillStiffMult      1.00000000000000E-4  
+     SolDrillZeroEig        1.00000000000000E-6  
+     SolDefMaxNormalsAngle     5.00000000000000E+0  
+     SolDefForceDrillingCheck   FALSE
+
+   SolverDefaultsIteration 
+     SolDefZeroDisp         1.00000000000000E-8  
+     SolDefDispNormTol      1.00000000000000E-4  
+     SolDefResidualsNormTol     1.00000000000000E-3  
+     SolDefNonlinIterLimit      20 
+     SolDefAddIterations   TRUE
+     SolDefMaxUpdateInterval       5 
+     SolDefMaxDispChange     1.00000000000000E+0  
+     SolDefMaxResidualChange     1.00000000000000E-1  
+     SolDefFormStiffnessMatrix       0 
+     SolDefFormHeatStiffnessMatrix       2 
+     SolDefHeatConvergenceTol     1.00000000000000E-5  
+     SolDefHeatRelaxationFactor     6.66670000000000E-1  
+     SolDefNonlinHeatIterLimit      20 
+
+   SolverDefaultsSubSteps 
+     SolDefSubStepping        0 
+     SolDefMinLoadReductionFactor     1.00000000000000E-1  
+     SolDefMaxRot           3.00000000000000E+1  
+     SolDefMaxDispRatio     1.00000000000000E-1  
+     SolDefMinArcLength     1.00000000000000E-3  
+     SolDefMaxFibreInc      1.00000000000000E-2  
+     SolDefSaveSubIncrements   FALSE
+     SolDefDynamicAutoSteppingMode       0 
+     SolDefMinTimeStep      1.00000000000000E-3  
+     SolDefConsiderTableSteps  FALSE 
+     SolDefSingleShotRestart  FALSE 
+     SolDefAutoAssignPathDiv  FALSE 
+
+   SolverDefaultsNonlinear 
+     SolDefIncludeKG      TRUE
+     SolDefAutoScaleKg   TRUE 
+     SolDefIgnoreCompressiveBeamKg  FALSE 
+     SolDefBeamKgType     Simplified
+     SolDefFiniteStrainDefinition   Nominal
+     SolDefBeamLength     Initial
+     SolDefRatioMNL         5.00000000000000E-1  
+     SolDefZeroContactFactor     1.00000000000000E-6  
+     SolDefSlidingFriction     1.00000000000000E-15 
+     SolDefStickingFriction     1.00000000000000E+0  
+     SolDefFrictionCutoffStrain     1.00000000000000E-5  
+     SolDefScaleSupports  TRUE 
+
+   SolverDefaultsCreep 
+     SolDefTimeStepParam     5.00000000000000E-1  
+     SolDefMinViscoUnits       3 
+     SolDefMaxViscoUnits       6 
+     SolDefCurveFitTime     1.00000000000000E+4  
+     SolDefCurveFitTimeUnit   d
+     SolDefSpacingBias      5.00000000000000E-1  
+     SolDefDoInstantNTA  TRUE 
+
+   SolverDefaultsEigenvalue 
+     SolDefZeroFreq         1.00000000000000E-5  
+     SolDefZeroBuckEigenvalue     1.00000000000000E-10 
+     SolDefExpandWorkingSetBy       6 
+     SolDefEigIterLimit      50 
+     SolDefEigIterTol       1.00000000000000E-5  
+     SolDefEigAutoShift  FALSE 
+
+   SolverDefaultsDynamics 
+     SolDefWilsonTheta      1.37000000000000E+0  
+     SolDefNewmarkBeta      5.00000000000000E-1  
+     SolDefTransientMethod   Newmark
+     SolDefExcludeMassComponents 
+     SolDefIncludeRotMass   TRUE
+
+
+
+/ ______________________________________________________________________________
+/ RESULT OPTIONS
+
+   ResultOptions      
+     ResOptsRotationUnit   Degrees
+     ResOptsHRADisplacement   Total
+     ResOptsHRAVelocity   Total
+     ResOptsHRAAcceleration   Relative
+     ResOptsBeamForceMoment   Principal
+     ResOptsStageDisplacement   BirthStage
